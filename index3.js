@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+app.use(express.json());
 const user = [
     { id: 1, name:"shagun", branch:"CSE", city: "Pune"},
     { id: 2, name:"sona", branch:"IT", city: "Mumbai"},
@@ -37,6 +38,14 @@ app.get("/api/users/:id",(req,res)=>{
     else{
         return res.json(user);
     }
+});
+app.post("/api/users",(req , res)=>{
+    const newUser={
+        id:users.length+1,
+        ...req.boby
+    }
+    users.push(newUser);
+    return res.json(users);
 })
 
 app.listen(3003);
