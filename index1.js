@@ -12,8 +12,6 @@ const server = http.createServer((req, res) => {
     });
 
     req.on("end", () => {
-
-      // JSON ko object me convert
       const data = JSON.parse(body);
       fs.writeFile("data.txt", JSON.stringify(data), (err) => {
         if (err) {
