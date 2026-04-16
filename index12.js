@@ -51,3 +51,4 @@ app.post("/shorten",async(req,res)=>{
         return res.status(5000).json({error:"internal server error"})
     }
 })
+app.listen(3000);
